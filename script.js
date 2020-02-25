@@ -89,7 +89,7 @@ function generatePassword() {
 
 }
   // prompt trigger
-    generateBtn.addEventListener("click", function() {
+    generateBtn.addEventListener("click", function()  {
     writePassword();
     }
     );
