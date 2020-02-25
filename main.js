@@ -1,10 +1,5 @@
-
+// generate button
 var generateBtn = document.querySelector("#generate");
-var lowerCaseValue;
-var upperCaseValue;
-var numberCaseValue;
-var specialCharValue;
-var lengthValue;
 
 // displays password
 function writePassword () {
@@ -27,7 +22,7 @@ function generatePassword() {
       alert("Too few characters little buddy!")
     }
 
-    var upperCase = confirm("Do you want upper case letters?");
+    var upperCase = confirm("Do you want uppercase letters?");
     if (upperCase===true) {
       upperCaseValue = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
       for (i = 0; i < upperCaseValue.length; i++) {
@@ -35,7 +30,7 @@ function generatePassword() {
       }
     }    
 
-    var lowerCase = confirm("Do you want lower case letters?");
+    var lowerCase = confirm("Do you want lowercase letters?");
     if (lowerCase===true) {
       lowerCaseValue = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
       for (i = 0; i < lowerCaseValue.length; i++) {
@@ -60,22 +55,30 @@ function generatePassword() {
         newPassword.push(specialCharValue[i]);
       }
     }
+    if (upperCase !== true && lowerCase !== true && numOfNums !== true && specialChar !== true) {
+      alert("You did not choose any character types! Please try again.");
+      return generatePassword();
+    }
+    
+
+  //   if (userLength >= 8 && userLength <= 128) {
+  //     userLengthValue = parseInt(userLength);
+  // } else {
+  //   alert("Not enough characters. Try again.");
+  //   return generatePassword();
+  // }
 
   var randomizer =""
   for (var i = 0; i < lengthValue; i++) {
     randomizer += newPassword[Math.floor(Math.random() * newPassword.length)];
-  } 
 
   return randomizer;
-  
+  }
 
 
+// remove?
+    // console.log("password")
 
-//   for(var i = 0; i < passLength; i ++){
-//     var randIndex = Math.floor(Math.random() * charSet.length);
-//     random += charSet[randIndex];
-
-    console.log("password")
 }
   // prompt trigger
     generateBtn.addEventListener("click", function() {
@@ -85,3 +88,4 @@ function generatePassword() {
 
    
 
+  
